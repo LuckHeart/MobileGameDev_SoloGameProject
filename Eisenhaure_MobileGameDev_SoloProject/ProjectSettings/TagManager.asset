@@ -11,13 +11,13 @@ TagManager:
   - 
   - Water
   - UI
+  - Floor
+  - 
+  - Obstacle
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Background
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3819449309
+    locked: 0
+  - name: Environment
+    uniqueID: 2716730967
     locked: 0
