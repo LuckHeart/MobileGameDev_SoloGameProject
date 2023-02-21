@@ -24,13 +24,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 2)
+        if (Input.touchCount > 0) // if a touch is detected
         {
-            rb.AddForce((Vector2.up * JumpForce) * Time.fixedDeltaTime, ForceMode2D.Impulse);
-            jumpCount++;
-            player.SetBool("hasJumped", true);
-            StartCoroutine(JumpTime());
-            playerAudio.PlayOneShot(playerJump, 1);
+            touch = Input.GetTouch(0); // gets the first touch on the screen (0)
+
+            if (touch.phase == TouchPhase.Began) //on tap
+            {
+                if (jumpCount < 2)
+                {
+                    rb.AddForce((Vector2.up * JumpForce) * Time.fixedDeltaTime, ForceMode2D.Impulse);
+                    jumpCount++;
+                    player.SetBool("hasJumped", true);
+                    StartCoroutine(JumpTime());
+                    playerAudio.PlayOneShot(playerJump, 1);
+                }
+            }
         }
     }
 

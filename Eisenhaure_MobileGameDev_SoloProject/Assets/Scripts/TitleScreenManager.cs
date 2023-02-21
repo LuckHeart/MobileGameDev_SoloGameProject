@@ -11,6 +11,7 @@ public class TitleScreenManager : MonoBehaviour
     public AudioSource titleScreen;
     public Text taptoStart;
     private bool hasTapped;
+    Touch touch;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,22 @@ public class TitleScreenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.touchCount > 0) // if a touch is detected
+        {
+            touch = Input.GetTouch(0); // gets the first touch on the screen (0)
+
+            if (touch.phase == TouchPhase.Began) //on tap
+            {
+                if (hasTapped == false)
+                {
+                    Debug.Log("Starting the Game");
+                    hasTapped = true;
+                    titleScreen.PlayOneShot(opening, .50f);
+                    StartCoroutine(BeginGame());
+                    taptoStart.text = "";
+                }
+            }
+        }
         if (hasTapped == false && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Starting the Game");
