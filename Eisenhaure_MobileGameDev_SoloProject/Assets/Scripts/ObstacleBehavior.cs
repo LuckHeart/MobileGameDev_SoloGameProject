@@ -33,7 +33,6 @@ public class ObstacleBehavior : MonoBehaviour
 
     public void PlayerDeath()
     {
-        Debug.Log("Player Hit!");
         GameObject.Destroy(player);
         SceneManager.LoadScene("TItleScreen");
     }

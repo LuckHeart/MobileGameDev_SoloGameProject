@@ -30,7 +30,6 @@ public class TitleScreenManager : MonoBehaviour
             {
                 if (hasTapped == false)
                 {
-                    Debug.Log("Starting the Game");
                     hasTapped = true;
                     titleScreen.PlayOneShot(opening, .50f);
                     StartCoroutine(BeginGame());
