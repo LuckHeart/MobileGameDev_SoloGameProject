@@ -36,7 +36,7 @@ public class SceneMangement : MonoBehaviour
             obstacleTiming = 0.0f;
         }
 
-        if (obstacleInstance.transform.position.x <= -10f)
+        if (obstacleInstance?.transform.position.x <= -10f)
         {
             Destroy(obstacleInstance);
             playerTally++;

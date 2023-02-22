@@ -32,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (jumpCount < 2)
                 {
-                    rb.AddForce((Vector2.up * JumpForce) * Time.fixedDeltaTime, ForceMode2D.Impulse);
+                    rb.velocity = new Vector2(rb.velocity.x, 0);
+                    rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
                     jumpCount++;
                     player.SetBool("hasJumped", true);
                     StartCoroutine(JumpTime());
@@ -46,6 +47,12 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(3.2f);
         player.SetBool("hasJumped", false);
-        jumpCount = 0;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Floor"))
+        {
+            jumpCount = 0;
+        }
     }
 }

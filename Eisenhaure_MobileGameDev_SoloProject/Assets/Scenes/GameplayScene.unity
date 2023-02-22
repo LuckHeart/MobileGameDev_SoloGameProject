@@ -824,7 +824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3518df30bbbdacf40a82095e3b17bc82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 350
+  JumpForce: 7
   hasJumped: 0
   jumpCount: 0
   playerJump: {fileID: 8300000, guid: 840050f90ae502246bbf261256128bc8, type: 3}

@@ -38,14 +38,7 @@ public class TitleScreenManager : MonoBehaviour
                 }
             }
         }
-        if (hasTapped == false && Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Starting the Game");
-            hasTapped = true;
-            titleScreen.PlayOneShot(opening, .50f);
-            StartCoroutine(BeginGame());
-            taptoStart.text = "";
-        }
+
     }
 
     private IEnumerator BeginGame()

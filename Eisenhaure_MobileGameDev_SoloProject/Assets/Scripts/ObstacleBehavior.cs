@@ -22,7 +22,7 @@ public class ObstacleBehavior : MonoBehaviour
     {
         if (playerAlive == true)
         {
-            transform.Translate(new Vector2(-1, 0) * speed * Time.fixedDeltaTime);
+            transform.Translate(new Vector2(-1, 0) * speed * Time.deltaTime);
         }
     }
 
